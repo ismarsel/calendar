@@ -1,0 +1,434 @@
+/* USER VARIABLES SECTION */
+
+:root {
+	--accent-blue: #128BE3;
+	--accent-red: #E31243;
+	--text: #353535;
+	--text-gray: #999;
+	--text-green: #06C270;
+	--regular-text: 14px;
+	--lineheight: 1.65;
+	--userfont: PFDinDisplayPro, sans-serif;
+	--systemfont: -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+}
+
+
+/* FONTS LOAD SECTION */
+
+@font-face { src: url("../fonts/PFDinDisplayPro-Regular.woff2") format("woff2"); font-family: "PFDinDisplayPro"; font-weight: 400; font-style: normal; font-display: auto;}
+@font-face { src: url("../fonts/PFDinDisplayPro-Medium.woff2") format("woff2"); font-family: "PFDinDisplayPro"; font-weight: 500; font-style: normal; font-display: auto;}
+@font-face { src: url("../fonts/PFDinDisplayPro-Black.woff2") format("woff2"); font-family: "PFDinDisplayPro"; font-weight: 900; font-style: normal; font-display: auto;}
+
+
+/* GENERAL CSS SETTINGS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+ul,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+::placeholder { color: #666; }
+::selection { background-color: #353535; color: #fff; }
+input, textarea { outline: none; }
+input:focus:required:invalid, textarea:focus:required:invalid { border-color: red; }
+input:required:valid, textarea:required:valid { border-color: green; }
+
+body {
+	font-family: var(--userfont);
+	font-size: var(--regular-text);
+	line-height: var(--lineheight);
+	color: var(--text);
+	min-width: 320px;
+	position: relative;
+	overflow-x: hidden;
+}
+
+.flex {
+  display: flex;
+}
+
+.btn-reset {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  padding: 8px 16px;
+  font-weight: 500;
+  color: #fff;
+  border-radius: 4px;
+  transition: all 0.25s ease;
+}
+
+.btn-blue {
+  background-color: var(--accent-blue);
+}
+
+.btn-red {
+  background-color: var(--accent-red);
+}
+
+.btn-red--outline {
+  border: 1px solid var(--accent-red);
+  color: var(--accent-red);
+}
+
+.btn-reset:hover {
+  box-shadow: 3px 3px 13px rgba(0,0,0,0.3);
+}
+
+.container {
+  width: 1300px;
+  margin: 0 auto;
+  padding: 0 10px;
+  background-color: #fff;
+}
+
+/* LEFT PANEL */
+
+.aside {
+  flex: 0 0 88px;
+  padding-top: 40px;
+}
+
+.logo {
+  text-align: center;
+}
+
+/* MAIN */
+
+.main {
+  display: flex;
+  border-left: 1px solid #DBDADA;
+  padding-top: 40px;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* CALENDAR CENTRAL BLOCK HEADER */
+
+.calendar {
+  width:75%;
+  padding-left: 80px;
+}
+
+.calendar__curent-date {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  align-items: left;
+  color: var(--text-gray);
+}
+
+.calendar-title {
+  margin-bottom: 24px;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 30px;
+}
+
+.calendar__upper {
+  margin-bottom: 16px;
+}
+
+.calendar__mounts-list {
+  list-style-type: none;
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.calendar__mounts-item:not(:last-child) {
+  margin-right: 24px;
+}
+
+.calendar__mounts-item {
+  font-weight: 500;
+  color: var(--text-gray);
+  cursor: pointer;
+}
+
+.calendar__mounts-item.active {
+  color: var(--accent-blue);
+}
+
+.calendar__curent-mount {
+  font-size: 20px;
+  color: var(--accent-red);
+  text-align: left;
+}
+
+.calendar__free-space {
+  font-size: 16px;
+  color: var(--text-green);
+  float: right;
+  line-height: 40px;
+}
+
+/* CALENDAR CELLS */
+
+.calendar__wrapper {
+  height: 390px;
+  margin-bottom: 41px;
+  background-color: #f9f9f9;
+}
+
+/* .vuecal__flex.vuecal__menu,
+.vuecal__title-bar {
+  display: none;
+} */
+
+.vuecal__flex.vuecal__weekdays-headings {
+  padding-right: 0;
+  font-size: 12px;
+  text-align: left;
+	background-color: #fff;
+}
+
+.vuecal__flex.vuecal__weekdays-headings .weekday-label {
+	justify-content: flex-start;
+}
+
+/* .vuecal__flex.vuecal__weekdays-headings .weekday-label .full {
+  display: none;
+}
+.vuecal__flex.vuecal__weekdays-headings .weekday-label .small {
+  display: block;
+} */
+
+.vuecal__cell-date {
+	position: absolute;
+	top: 8px;
+	left: 8px;
+	color: var(--text-gray);
+  font-size: 12px;
+}
+
+/* Cell background indicator */
+.vuecal__cell--has-events {
+  background-color: #fff;
+}
+
+.vuecal__cell-events-count {
+  font-size: 12px;
+  color: var(--text-green);
+  background-color: #fff;
+}
+
+
+/* CALENDAR FOOTER */
+
+.calendar__under {
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 65px;
+}
+
+.under-info >div:not(:last-child) {
+  margin-right: 20px;
+}
+
+.under-info p {
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.02em;
+  color: var(--text-gray)
+}
+
+.under-info span {
+  padding-top: 5px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.under-info__quantity  span{
+  color:var(--text);
+}
+
+.under-info__set span {
+  color: var(--accent-blue);
+}
+
+.under-info__free {
+  color: var(--text-green);
+}
+
+.under-btns button:not(:last-child) {
+  margin-right: 16px;
+}
+
+/* END OF CALENDAR CENTRAL BLOCK HEADER */
+
+/* CALENDAR RIGTH CLIENT-BLOCK */
+
+.current-company {
+  width: 40%;
+  margin-left: 45px;
+  margin-right: 70px;
+}
+
+.client {
+}
+.client__top-info {
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 50px;
+}
+
+.client__name {
+  align-items: center;
+  margin-right: 40px;
+}
+
+.client-logo {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+
+.cart {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  background-image: url("../images/cart.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.cart::after {
+  content: "4";
+  position: absolute;
+  top: 0;
+  right: -26px;
+  height: 24px;
+  width: 24px;
+  background-color: var(--accent-red);
+  border-radius: 50%;
+}
+
+.client__btns {
+  margin-bottom: 32px;
+}
+
+.client__btns button:first-child {
+  margin-right: 16px;
+}
+
+.del-all-btn {
+  padding-left: 34px;
+  background-image: url("../images/trash.svg");
+  background-repeat: no-repeat;
+  background-position: 16px center;
+}
+
+.add-employees {
+}
+.delete-employees {
+}
+.client__lists {
+}
+.employees {
+}
+.employees-total {
+  float: left;
+  font-weight: 500;
+  font-size: 20px;
+}
+.employees-set {
+  float: right;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 33px;
+  color: var(--accent-blue);
+}
+
+.client__lists-head {
+  clear: both;
+  padding-top: 16px;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: var(--text-gray);
+  margin-bottom: 14px;
+  border-bottom: 1px solid #DBDADA;
+  padding-bottom: 8px;
+}
+.client__lists-head span:last-child {
+  float: right;
+  margin-right: 84px;
+}
+.client__lists-item {
+  margin-bottom: 27px;
+  border-bottom: 1px solid #DBDADA;
+}
+
+.department {
+  position: relative;
+  margin-bottom: 20px;
+  padding-left: 26px;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.department::after {
+ content: "";
+ position: absolute;
+ top: 9px;
+ right: 0;
+ height: 6px;
+ width: 6px;
+ border-right: 2px solid var(--accent-blue);
+ border-bottom: 2px solid var(--accent-blue);
+ transform:rotate(45deg);
+}
+
+.department-quantity {
+  color: var(--accent-red);
+}
+
+.client__list {
+  position: relative;
+  margin-bottom: 7px;
+  padding-left: 42px;
+}
+
+.department::before,
+.client__list-item::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  background-image: url("../images/client-list.svg");
+  background-repeat: no-repeat;
+}
+.client__list-item::before {
+  left:-22px;
+  top: 11px;
+}
+
+.client__list-item {
+  position: relative;
+  padding: 12px 0 7px;
+}
+.client__list-item::before,
+.client__list-item:hover {
+  background-color: #f2f2f2;
+}
+
+.time {
+  float: right;
+  margin-right: 104px;
+}
