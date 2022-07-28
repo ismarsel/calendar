@@ -1,24 +1,25 @@
 # calendar
+```
+Запись приема пациентов. На календарь можно перетащить пациента из области со спискоом сотруднииков. День разбит по времени с получасовым интервалом. При перетаскивании клиента ему также задано полчаса на прием. Время можно изменить путем перетаскивания пациента, также можноо изменить интервал посещениия, перетаскиванием ползунка вверх/вниз под именем пациента в календаре. Для удаления записи - удерживать левую кнопку мыши на имени в календаре.
+```
 
-## Project setup
+## Установка
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Запуск
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Инструменты
 ```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
+Vue3, Vuex, Vue-Cal
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Todo
+```
+```
+
+
