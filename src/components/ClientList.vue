@@ -43,5 +43,31 @@ import { mapState, mapActions } from 'vuex';
 </script>
 
 <style lang="scss" scoped>
+  .client__list {
+    position: relative;
+    margin-bottom: 7px;
+    padding-left: 42px;
+    &-item {
+      position: relative;
+      padding: 12px 0 7px;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 13px;
+        left: -22px;
+        width: 16px;
+        height: 16px;
+        background-image: url("@/assets/images/client-list.svg");
+        background-repeat: no-repeat;
+      }
+      &:hover {
+        background-color: #f2f2f2;
+      }
+    }
+  }
 
+  .time {
+    float: right;
+    margin-right: 104px;
+  }
 </style>
