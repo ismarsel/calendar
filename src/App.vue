@@ -1,15 +1,15 @@
 <template>
-  <calendar-page />
+  <main-page />
 </template>
 
 <script>
-import CalendarPage from '@/components/CalendarPage.vue';
+import MainPage from '@/components/MainPage.vue';
 
 
 export default {
   name: 'App',
   components: {
-    CalendarPage
+    MainPage
   }
 }
 </script>

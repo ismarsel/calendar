@@ -67,6 +67,8 @@ body {
   outline: none;
   background-color: transparent;
   padding: 8px 16px;
+  font-family: 'PFDinDisplayPro';
+  font-size: 1em;
   font-weight: 500;
   color: #fff;
   border-radius: 4px;
@@ -177,45 +179,6 @@ body {
   line-height: 40px;
 }
 
-/* CALENDAR CELLS */
-
-.calendar__wrapper {
-  height: 390px;
-  margin-bottom: 41px;
-  background-color: #f9f9f9;
-}
-
-.vuecal__flex.vuecal__weekdays-headings {
-  padding-right: 0;
-  font-size: 12px;
-  text-align: left;
-	background-color: #fff;
-}
-
-.vuecal__flex.vuecal__weekdays-headings .weekday-label {
-	justify-content: flex-start;
-}
-
-.vuecal__cell-date {
-	position: absolute;
-	top: 8px;
-	left: 8px;
-	color: var(--text-gray);
-  font-size: 12px;
-}
-
-/* Cell background indicator */
-.vuecal__cell--has-events {
-  background-color: #fff;
-}
-
-.vuecal__cell-events-count {
-  font-size: 12px;
-  color: var(--text-green);
-  background-color: #fff;
-}
-
-
 /* CALENDAR FOOTER */
 
 .calendar__under {
@@ -302,6 +265,7 @@ body {
   right: -26px;
   height: 24px;
   width: 24px;
+  padding-top: 4px;
   background-color: var(--accent-red);
   border-radius: 50%;
 }
