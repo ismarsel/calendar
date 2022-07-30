@@ -5,6 +5,7 @@
       hide-title-bar
       hide-view-selector
       active-view="month"
+      :selected-date="selectedDate"
       locale="ru"
       :time-from="8 * 60"
       :time-to="20 * 60"
@@ -26,6 +27,17 @@ import { mapState, mapActions } from 'vuex';
   export default {
     components: { 
       VueCal,
+    },
+    props: {
+      selectedDate: {
+        type: Object,
+        default: new Date()
+      },
+    },
+    data() {
+      return {
+
+      }
     },
     computed: {
       ...mapState([

@@ -14,19 +14,59 @@
           <h1 class="calendar-title">Предварительный медицинский осмотр лиц, поступающих в&nbsp;учебные заведения гражданской авиации (ГА)</h1>
           <div class="calendar__upper">
             <ul class="calendar__mounts-list">
-              <li class="calendar__mounts-item active">Май</li>
-              <li class="calendar__mounts-item">Июнь</li>
-              <li class="calendar__mounts-item">Июль</li>
-              <li class="calendar__mounts-item">Август</li>
-              <li class="calendar__mounts-item">Сентябрь</li>
-              <li class="calendar__mounts-item">Ноябрь</li>
-              <li class="calendar__mounts-item">Октябрь</li>
-              <li class="calendar__mounts-item">Декабрь</li>
+              <li 
+                class="calendar__mounts-item"
+                :class="getActiveMonth == 4 ? 'active' : ''"
+                @click="setActiveMonth(4)">
+                Май
+              </li>
+              <li 
+                class="calendar__mounts-item"
+                :class="getActiveMonth == 5 ? 'active' : ''"
+                @click="setActiveMonth(5)">
+                Июнь
+              </li>
+              <li 
+                class="calendar__mounts-item"
+                :class="getActiveMonth == 6 ? 'active' : ''"
+                @click="setActiveMonth(6)">
+                Июль
+              </li>
+              <li 
+                class="calendar__mounts-item"
+                :class="getActiveMonth == 7 ? 'active' : ''"
+                @click="setActiveMonth(7)">
+                Август
+              </li>
+              <li 
+                class="calendar__mounts-item"
+                :class="getActiveMonth == 8 ? 'active' : ''"
+                @click="setActiveMonth(8)">
+                Сентябрь
+              </li>
+              <li 
+                class="calendar__mounts-item"
+                :class="getActiveMonth == 9 ? 'active' : ''"
+                @click="setActiveMonth(9)">
+                Ноябрь
+              </li>
+              <li 
+                class="calendar__mounts-item"
+                :class="getActiveMonth == 10 ? 'active' : ''"
+                @click="setActiveMonth(10)">
+                Октябрь
+              </li>
+              <li 
+                class="calendar__mounts-item"
+                :class="getActiveMonth == 11 ? 'active' : ''"
+                @click="setActiveMonth(11)">
+                Декабрь
+              </li>
             </ul>
             <span class="calendar__curent-mount">Май</span>
             <span class="calendar__free-space">Свободных мест 345 из 1000</span>
           </div>
-          <calendar-view />
+          <calendar-view :selectedDate="selectedDate"/>
           <div class="calendar__under flex">
             <div class="under-info flex">
               <div class="under-info__quantity">
@@ -85,6 +125,9 @@
 <script>
 import ClientListsItem from '@/components/ClientListsItem.vue';
 import CalendarView from '@/components/CalendarView.vue'
+
+let date = new Date()
+
   export default {
     components: { 
       ClientListsItem,
@@ -92,7 +135,19 @@ import CalendarView from '@/components/CalendarView.vue'
     },
     data() {
       return {
-        
+        selectedDate: new Date(),
+        activeMonth: date.getMonth(),
+      }
+    },
+    computed: {
+      getActiveMonth() {
+        return this.activeMonth 
+      }
+    },
+    methods: {
+      setActiveMonth(month) {
+        this.activeMonth = month
+        this.selectedDate = new Date(date.getFullYear(), month, 1); 
       }
     },
 
